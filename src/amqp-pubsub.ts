@@ -90,7 +90,7 @@ export class AmqpPubSub implements PubSubEngine {
     let newRefs;
     if (refs.length === 1) {
       newRefs = [];
-      if (typeof this.unsubscribeChannelMap[subId] === "function") {
+      if (typeof this.unsubscribeChannelMap[subId] !== "function") {
         this.logger.trace("can't find '%s' in unsubscribeChannelMap for queue '%s'", subId, triggerName);
       }
       else {
